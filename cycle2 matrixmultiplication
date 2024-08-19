@@ -35,7 +35,7 @@ class matrixmultiplication
                   }
                     for(int k=0;k<c;k++)
                     {
-                       ptoduct[i][j]+=a[i][k]*b[k][i];
+                       product[i][j]+=a[i][k]*b[k][i];
                     }
             } 
             System.out.println("product of the matrices");
