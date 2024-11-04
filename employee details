@@ -1,0 +1,80 @@
+class Employee {
+    String name;
+    int age;
+    String phoneNumber;
+    String address;
+    double salary;
+
+    
+    public Employee(String name, int age, String phoneNumber, String address, double salary) {
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.salary = salary;
+    }
+
+    
+    public void printSalary() {
+        System.out.println("Salary: " + salary);
+    }
+}
+
+
+class Officer extends Employee {
+    String specialization;
+
+    
+    public Officer(String name, int age, String phoneNumber, String address, double salary, String specialization) {
+        super(name, age, phoneNumber, address, salary);
+        this.specialization = specialization;
+    }
+
+    
+    public void printDetails() {
+        System.out.println("Officer Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Address: " + address);
+        System.out.println("Specialization: " + specialization);
+        printSalary();
+    }
+}
+
+
+class Manager extends Employee {
+    String department;
+
+   
+    public Manager(String name, int age, String phoneNumber, String address, double salary, String department) {
+        super(name, age, phoneNumber, address, salary);
+        this.department = department;
+    }
+
+    
+    public void printDetails() {
+        System.out.println("Manager Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Address: " + address);
+        System.out.println("Department: " + department);
+        printSalary();
+    }
+}
+
+
+ class Main {
+    public static void main(String[] args) {
+        
+        Officer officer = new Officer("Alice Johnson", 30, "123-456-7890", "123 Elm St", 50000, "Security");
+        System.out.println("Officer Details:");
+        officer.printDetails();
+        System.out.println();
+
+        
+        Manager manager = new Manager("Bob Smith", 40, "987-654-3210", "456 Oak St", 80000, "Sales");
+        System.out.println("Manager Details:");
+        manager.printDetails();
+        
+    }
+}
