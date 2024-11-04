@@ -1,0 +1,53 @@
+// Nandana Ramachandran
+// Roll no:44
+class GarbageCollector {
+
+    
+    static class MyObject {
+        private String name;
+
+        public MyObject(String name) {
+            this.name = name;
+        }
+
+        @Override
+        protected void finalize() throws Throwable {
+            System.out.println("Finalizing: " + name);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Creating objects...");
+
+        
+        MyObject obj1 = new MyObject("Object 1");
+        MyObject obj2 = new MyObject("Object 2");
+
+       
+        obj1 = null;
+
+        
+        System.out.println("Suggesting garbage collection...");
+        System.gc();
+
+       
+        MyObject obj3 = new MyObject("Object 3");
+        MyObject obj4 = new MyObject("Object 4");
+
+       
+        obj3 = null;
+
+        
+        System.out.println("Suggesting garbage collection again...");
+        System.gc();
+
+        
+        try {
+            Thread.sleep(1000); // Wait for a second
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("End of program.");
+    }
+}
