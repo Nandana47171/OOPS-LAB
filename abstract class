@@ -1,4 +1,4 @@
-bstract class shape
+abstract class shape
 {
        public abstract void numberOfSides();
 }
