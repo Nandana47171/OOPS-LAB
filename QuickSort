@@ -1,0 +1,49 @@
+//Nandana Ramachandran
+// Roll no:44
+import java.util.Arrays;
+class quicksort{
+
+    
+    public static void quickSort(String[] names, int low, int high) {
+        if (low < high) {
+            
+            int pivotIndex = partition(names, low, high);
+            
+            quickSort(names, low, pivotIndex - 1);
+            quickSort(names, pivotIndex + 1, high);
+        }
+    }
+
+    
+    private static int partition(String[] names, int low, int high) {
+        String pivot = names[high]; 
+        int i = (low - 1); 
+        for (int j = low; j < high; j++) {
+            
+            if (names[j].compareTo(pivot) <= 0) {
+                i++;
+                
+                String temp = names[i];
+                names[i] = names[j];
+                names[j] = temp;
+            }
+        }
+        
+        String temp = names[i + 1];
+        names[i + 1] = names[high];
+        names[high] = temp;
+
+        return i + 1; 
+    }
+
+   
+    public static void main(String[] args) {
+        String[] names = {"John", "Alice", "Bob", "Charlie", "Diana", "Eva"};
+
+        System.out.println("Original array: " + Arrays.toString(names));
+
+        quickSort(names, 0, names.length - 1);
+
+        System.out.println("Sorted array: " + Arrays.toString(names));
+    }
+}
